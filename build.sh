@@ -7,6 +7,8 @@ set -o xtrace
 vim_version="${1}"
 IFS="." read -ra parts <<<"$vim_version"
 
+centos_ver="$(rpm --eval '%{centos_ver}')"
+
 # Install dependencies
 dnf group install -y 'RPM Development Tools'
 dnf install -y dnf-plugins-core
